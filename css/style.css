@@ -1,0 +1,788 @@
+/* font-family: 'Red Hat Display', sans-serif; */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Red Hat Display', sans-serif;
+    color: #035755;
+    font-size: 18px;
+    text-transform: capitalize;
+    background-image: linear-gradient(#FFF1F1, #fff, #FFF1F1);
+}
+h1{
+    font-size: 3.4em;
+    font-weight: bold;
+    line-height: 85px;
+    color: #0C6C44;
+    margin-bottom: 60px;
+    text-align: center;
+    width: 50%;
+    margin-left: auto;margin-right: auto;
+}
+h2{
+    font-weight: bold;
+    font-size: 2.6em;
+    line-height: 65px;
+    
+    margin-bottom: 20px;
+}
+h3{
+    font-size: 2em;
+    color: #035755;
+    font-weight: bold;
+    
+    margin-bottom: 20px;
+    /* margin-top: 70px; */
+}
+p{
+    color: #4B4F51;
+    font-size: 1.1em;
+    line-height: 1.9;
+    margin-bottom: 10px;
+}
+.title{
+    color: #FA5652;
+    font-weight: bold;
+    font-size: 1.6em;
+}
+
+.header-text > p{
+    font-size: 1.3em;
+    line-height: 1.9;
+}
+.header-text > .title{
+    font-size: 1.7em;
+}
+.header-text > h2{
+    font-size: 2.7em;
+    margin-bottom: 35px;
+}
+
+a{
+    text-decoration: none;
+    color: #035755;
+}
+a:visited{
+    color: unset;
+}
+
+
+.container{
+    width: 80%;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.header{
+    padding-top: 30px;
+    padding-bottom: 100px;
+    position: relative;
+}
+
+.header__top{
+    display: flex;
+    align-items: center;
+    margin-bottom: 60px;
+}
+.logo{
+    background-image: url(../images/logo.png);
+    width: 192px;
+    height: 65px;
+    animation: changebg 4s infinite;
+}
+@keyframes changebg{
+    33% {background-image: url(../images/Logo-hover2.png);}
+    66% {background-image: url(../images/Logo-hover.png);}
+}
+
+
+.nav{
+    margin-left: auto;
+}
+.nav ul{
+    display: flex;
+    list-style: none;
+}
+.nav a{
+    font-weight: bold;
+}
+.nav li:hover,
+li.active {
+    color: #FA5652; 
+}
+.nav li{
+    margin-right: 45px;
+    position: relative;
+}
+
+.nav > ul > li > a::after {
+    content: ""; 
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    clear: both; 
+    height: 6px;
+    width: 7px;  
+    border-radius: 50%;
+    margin-top: 10px;
+    opacity: 0;
+    position: absolute;
+    top: 15px;
+    left: calc(50% - 3px);
+    background-color: #FA5652;
+}
+.nav li.active a::after,
+.nav a:hover::after{   
+    opacity: 1;    
+} 
+.button{
+    border-radius: 46px;
+    cursor: pointer;
+}
+.button:hover{
+    transform: scale(1.1);
+}
+.button__contact{
+    color: #FA5652;
+    border: #FA5652 2px solid;
+    /* padding: 15px 45px; */
+    width: 155px;
+    height: 55px;
+    font-weight: bold;
+    font-size: 18px;
+    background-color: inherit;
+}
+.button__contact:hover{
+    background-color: #FA5652;
+    color: #FFF;
+}
+
+
+.hidden-menu {
+    display: none;
+    width: 50px;
+    height: 30px;
+    position: absolute;
+    z-index: 2;
+    top: 56px;
+    right: 10%;
+}
+.hidden-menu input {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 2;
+}
+.hidden-menu .line {
+    background: #FA5652;
+    display: block;
+    width: 100%;
+    height: 6px;
+    /* position: absolute; */
+    /* left: 0; */
+    border-radius: 4px;
+    transition: all 0.5s;
+    /* top: 0; */
+}
+
+.hidden-menu .line:not(:last-child) {  
+    margin-bottom: 6px;
+}
+.hidden-menu input:checked ~ span 
+{   
+    background-color: #fff;
+    opacity: 1;
+    transform: translateY(12px) translateX(0) rotate(45deg);
+}
+
+.hidden-menu input:checked ~ span:nth-last-child(3) 
+{
+  opacity: 0; 
+}
+
+.hidden-menu input:checked ~ span:nth-last-child(2) 
+{
+  transform: translateY(-12px) translateX(0) rotate(-45deg);
+}
+
+
+
+
+.header__toggle-menu {
+    height: 40px;
+    width: 40px;
+    top: 0;
+    right: -200px;
+    background-color: #FA5652;
+
+    z-index: -1;
+    overflow: hidden;
+    position: fixed;
+    opacity: 0;
+   transition: all 0.6s ease;
+}
+
+.hidden-menu input:checked ~ .header__toggle-menu {
+
+    opacity: 1;
+    overflow: visible;
+    right: -100px;
+    top: -70px;
+    height: 400px;
+    width: 400px;
+    border-radius: 50%;
+}
+.nav-toggle {
+    margin-top: 46%;
+}
+.header__toggle-menu ul li {
+    text-align: center;
+    padding-right: 20%;
+}
+.header__toggle-menu li a{
+    color: #FFF;
+    font-size: 1.5em;
+}
+
+
+
+
+.header__bot{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 800px;
+}
+.header-text{
+    width: 100%;
+    align-self: center;
+}
+.button__help{
+    background-color: #FA5652;
+    color: #FFF;
+    border: none;
+    width: 250px;
+    height: 80px;
+    font-weight: bold;
+    font-size: 1.3em;
+    margin-top: 55px;
+    transition-duration: 0.5s;
+}
+.header__bot-img{
+    background-image: url(../images/header-pic.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 200px;
+    right: 0px;
+    overflow: hidden;
+}
+
+.about,
+.contagion,
+.symptoms,
+.instruction,
+.map,
+.subscripe{
+    padding-bottom: 100px;
+}
+.wrapper__about{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 800px;
+}
+
+.about-img{
+    background-image: url(../images/about-pic.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 100%;
+}
+.about-text{
+    width: 100%;
+    align-self: center;
+}
+
+.button__about{
+    background-color: rgba(250, 86, 82, 0.15);
+    color: #FA5652;
+    border: none;
+    width: 200px;
+    height: 65px;
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-top: 35px;
+    transition-duration: 0.5s;
+}
+
+.contagion-text{
+    text-align: center;
+    width: 45%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contagion__list{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: baseline;
+    grid-column-gap: 15px;
+    margin-top: 20px;
+}
+
+.contagion__item{
+    background-color: #fff;
+    padding: 70px 10px 30px;
+    height: 100%;
+    text-align: center;
+    border-radius: 6px;
+    box-shadow: 0 0 30px rgb(177, 145, 145)
+}
+
+.contagion__item::after {
+    content: ""; 
+    display: block;
+    clear: both; 
+    height: 6px;
+    width: 100%;  
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    opacity: 0;
+    background-color: #FA5652;
+}
+.contagion__item:hover::after{
+    opacity: 1;
+}
+.ico{
+    display: block;
+    background-repeat: no-repeat;
+}
+.ico-mask{
+    background-image: url(../images/mask.png);
+    width: 270px;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.ico-hand{
+    background-image: url(../images/hand.png);
+    width: 284px;
+    height: 300px;
+    position: relative;
+    bottom: 35px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.ico-nose{
+    background-image: url(../images/nose.png);
+    width: 275px;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+
+.symptoms-text,
+.instructions-text{
+    text-align: center;
+    width: 55%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.symptoms-pic{
+    background-image: url(../images/symptoms-bg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 927px;
+}
+
+.simptoms-item{
+    position: relative;
+}
+
+.fever{
+    background-image: url(../images/symptoms-fever.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 37%;
+    height: 232px;
+    position: absolute;
+    top: 203px;
+    left: 13%;
+    z-index: 2;
+    animation: fev 3s;
+}
+@keyframes fev{
+    0% {transform: scale3d(0, 0, 0);}
+    5% {transform: scale3d(0, 0, 1);}
+    100% {transform: none;}
+}
+.throat{
+    background-image: url(../images/symptoms-throat.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 40%;
+    height: 232px;
+    position: absolute;
+    top: 425px;
+    left: 12%;
+    z-index: 2;
+    animation: th 4s;
+}
+@keyframes th{
+    0% {transform: scale3d(0, 0, 0);}
+    20% {transform: scale3d(0, 0, 1);}
+    100% {transform: none;}
+}
+.dyspnoea{
+    background-image: url(../images/symptoms-dysp.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 41%;
+    height: 295px;
+    position: absolute;
+    top: 595px;
+    left: 13%;
+    z-index: 2;
+    animation: dysp 5s;
+}
+@keyframes dysp{
+    0% {transform: scale3d(0, 0, 0);}
+    35% {transform: scale3d(0, 0, 1);}
+    100% {transform: none;}
+}
+.headache{
+    background-image: url(../images/symptoms-headache.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 30%;
+    height: 232px;
+    position: absolute;
+    right: 16%;
+    top: 200px;
+    z-index: 2;
+    animation: head 6s;
+}
+@keyframes head{
+    0% {transform: scale3d(0, 0, 0);}
+    50% {transform: scale3d(0, 0, 1);}
+    100% {transform: none;}
+}
+.nose{
+    background-image: url(../images/symptoms-nose.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 32%;
+    height: 246px;
+    position: absolute;
+    right: 14%;
+    top: 405px;
+    z-index: 2;
+    animation: nose 7s;
+}
+@keyframes nose{
+    0% {transform: scale3d(0, 0, 0);}
+    65% {transform: scale3d(0, 0, 1);}
+    100% {transform: none;}
+}
+.chills{
+    background-image: url(../images/symptoms-chills.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 26%;
+    height: 232px;
+    position: absolute;
+    right: 15%;
+    top: 625px;
+    z-index: 2;
+    animation: ch 8s;
+}
+@keyframes ch{
+    0% {transform: scale3d(0, 0, 0);}
+    80% {transform: scale3d(0, 0, 1);}
+    100% {transform: none;}
+}
+
+
+
+
+.instructions__list{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 75px;
+}
+.instructions__item{
+    align-self: center;
+    position: relative;
+}
+.instructions__item-text{
+    padding-left: 110px;
+}
+
+.instructions__girl-mask{
+    background-image: url(../images/girl-mask.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 590px;
+}
+.instructions__girl-hand{
+    background-image: url(../images/girl-hand.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 590px;
+}
+.instructions__girl-nose{
+    background-image: url(../images/girl-nose.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 590px;
+}
+.instructions__girl-contact{
+    background-image: url(../images/girl-contact.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 690px;
+}
+.ico-1,
+.ico-2,
+.ico-3,
+.ico-4{
+    width: 75px;
+    height: 75px;
+    position: absolute;
+    top: -20px;
+}
+
+.ico-1{
+    background-image: url(../images/01.png);
+}
+
+.ico-2{
+    background-image: url(../images/02.png);
+}
+.ico-3{
+    background-image: url(../images/03.png);
+}
+.ico-4{
+    background-image: url(../images/04.png);
+}
+.map_img{
+    background-image: url(../images/Map.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    position: relative;
+}
+.ico-zoom{
+    background-image: url(../images/zoom.png);
+    background-size: contain;
+    width: 186px;
+    height: 323px;
+    position: absolute;
+    top: -17%;
+}
+.ico-search{
+    background-image: url(../images/search.png);
+    background-size: contain;
+    width: 228px;
+    height: 225px;
+    position: absolute;
+    top: -20%;
+    right: 0;
+}
+
+.map_wrapper{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.stat{
+    background-color: #fff;
+    padding: 70px 55px 60px;
+    margin-top: -53px;
+    position: relative;
+}
+.ico-slide{
+    background-image: url(../images/ico-slide.png);
+    width: 186px;
+    height: 149px;
+    position: absolute;
+    top: 17px;
+    right: 0;
+}
+.countries{
+    display: grid;
+    grid-template-columns: 50px 1fr 1fr 30px;
+    grid-column-gap: 20px;
+    grid-row-gap: 40px;
+    align-items: center;
+    padding-top: 65px;
+}
+.countries > span{
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+.ico-usa,
+.ico-it,
+.ico-ch,
+.ico-sp,
+.ico-grm,
+.ico-ir{
+    width: 49px;
+    height: 35px;
+}
+.ico-usa{
+    background-image: url(../images/ico-usa.png);
+}
+.ico-it{
+    background-image: url(../images/ico-it.png);
+}
+.ico-ch{
+    background-image: url(../images/ico-ch.png);
+}
+.ico-sp{
+    background-image: url(../images/ico-sp.png);
+}
+.ico-grm{
+    background-image: url(../images/ico-grm.png);
+}
+.ico-ir{
+    background-image: url(../images/ico-ir.png);
+}
+.ico-up{
+    background-image: url(../images/ico-up.png);
+    width: 21px;
+    height: 14px;
+}
+.ico-down{
+    background-image: url(../images/ico-down.png);
+    width: 21px;
+    height: 14px;
+}
+
+form{
+    width: 790px;
+    height: 114px;
+    background-color: #fff;
+    border-radius: 57px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 40px;
+    padding-right: 15px;
+    align-items: center;
+}
+input{
+    border: none;
+    width: 50%;
+    height: 30px;
+}
+::placeholder{
+    font-size: 1.2em;
+}
+.button-send{
+    width: 209px;
+    height: 78px;
+    background-color: #FA5652;
+    color: #FFF;
+    border: none;
+    font-weight: bold;
+    font-size: 1.2em;
+    transition-duration: 0.5s;
+}
+
+.footer__top{
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    align-items: center;
+    justify-items: center;
+}
+
+.footer__top-nav ul{
+    display: flex;
+}
+
+.footer__top-nav li:not(:last-child){
+    margin-right: 60px;
+}
+.footer__top-ico a:not(:last-child){
+    padding-right: 40px;
+}
+.fa-youtube{
+    color: red;
+}
+.footer__bot{
+    margin-top: 70px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+.animation-cov{
+    animation: cov 50s linear infinite alternate;
+    position: absolute;
+    top: 0;
+    left: 15%;
+    z-index: -1;
+}
+.about{
+    position: relative;
+}
+.animation-cov-little{
+    animation: cov 50s linear infinite alternate-reverse;
+    position: absolute;
+    top: 0;
+    left: 15%;
+    z-index: -1;
+}
+.contagion{
+    position: relative;
+}
+.animation-cov-green{
+    animation: cov 50s linear infinite alternate;
+    position: absolute;
+    top: 0;
+    left: 15%;
+    z-index: -1;
+}
+.instruction{
+    position: relative;
+}
+.animation-cov-greenbig{
+    animation: cov 50s linear infinite alternate;
+    position: absolute;
+    top: 0;
+    left: 15%;
+    z-index: -1;
+}
+@keyframes cov{
+    20% {left:calc(90% - 400px); top:20%; transform:rotate(360deg)}
+    40% {left:15%; top:40%; transform:rotate(-360deg)}
+    60% {left:calc(90% - 400px); top:60%; transform:rotate(360deg)}
+    80% {left:15%; top:80%; transform:rotate(-360deg)}
+    100% {left:calc(90% - 400px); top:100%; transform:rotate(360deg)}
+}
