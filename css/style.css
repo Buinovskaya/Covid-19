@@ -345,7 +345,8 @@ li.active {
     height: 100%;
     text-align: center;
     border-radius: 6px;
-    box-shadow: 0 0 30px rgb(177, 145, 145)
+    box-shadow: 0 0 30px rgb(177, 145, 145);
+    position: relative;
 }
 
 .contagion__item::after {
@@ -358,6 +359,9 @@ li.active {
     border-bottom-right-radius: 6px;
     opacity: 0;
     background-color: #FA5652;
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 .contagion__item:hover::after{
     opacity: 1;
